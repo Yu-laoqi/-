@@ -1,0 +1,70 @@
+//
+//  Starry.pch
+//  BWStarry
+//
+//  Created by 于泽峰 on 2018/4/12.
+//  Copyright © 2018年 BW. All rights reserved.
+//
+
+#ifndef Starry_pch
+#define Starry_pch
+
+#import "AppThird.h"//所有第三方的主头文件
+#import "AppDelegate.h"
+#import "BaseViewController.h"
+#import "LoginViewController.h"
+#import "UIView+ShowAlert.h"
+#import "NSString+Reguiar.h"
+#import "URLservice.h"
+#import "User.h"
+#import "UserDBService.h"
+#import "MJRefresh.h"
+
+
+
+//屏幕宽度的宏
+#define SCR_W [UIScreen mainScreen].bounds.size.width
+//高度的宏
+#define SCR_H [UIScreen mainScreen].bounds.size.height
+
+//是配的宏
+#define   FIT_X(x)  (SCR_W/375.0*(x))
+//用于持久化当前App版本号的key
+#define   SAVE_VERSION   @"savedVersion"
+//表示当前App版本号的宏
+#define  CURRENT_VERSION  [[NSBundle mainBundle].infoDictionary objectForKey:@"CFBundleShortVersionString"]
+
+//判断是不是X的宏
+#define IS_IPHONE_X  (SCR_W==375 && SCR_H==812)
+//屏幕为3.5寸的hong
+#define SCREEN_3_5  (SCR_W==320 && SCR_H==480)
+//屏幕为4村的宏
+#define SCREEN_4  (SCR_W==320 && SCR_H==568)
+//字体适配的宏
+#define FONT_FIT(size)  ((SCREEN_3_5 || SCREEN_4) ? (size-4):size)
+
+
+//状态栏高度的宏(三木运算符)/
+#define STATUS_BAR_HEIGHT  (IS_IPHONE_X ?40:20)
+//状态栏加导航条高度的宏
+#define TOP_BAR_HEIGHT (STATUS_BAR_HEIGHT+44)
+//底部安全距离
+#define BottomSafeArea (IS_IPHONE_X ? 34 :0)
+//标签栏高度
+#define TAB_BAR_HEIGHT 44
+
+//整个应用程序代理的hong
+#define App_Delegate  (AppDelegate *)[UIApplication sharedApplication].delegate
+//用于网址字符串拼接的宏
+#define HOST_URL @"http://py.cmshop.net"
+//带参的宏
+#define HOST_URL_APPEND(url) [HOST_URL  stringByAppendingPathComponent:url]
+
+//用于通知推出登录的宏
+#define LogoutNotificationName @"logoutNotification"
+//判断为空
+#define STRING_EMPIY(s) (((s)==nil || [(s) length]==0) ? @"" : (s))
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* Starry_pch */
